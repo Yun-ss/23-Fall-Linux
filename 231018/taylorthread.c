@@ -4,7 +4,6 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 
-pthread_mutex_t mtx;
 double* pX;
 double* pResult;
 int terms;
@@ -34,7 +33,6 @@ int main() {
 	pX = x;
 	pResult = res;
 	terms=3;
-	pthread_mutex_init(&mtx, NULL);
 	for (i = 0; i < 4; ++i) {
 		args[i] = i;
 		pthread_create(&threads[i], NULL, TaskCode, (void*)&args[i]);
