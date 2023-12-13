@@ -38,11 +38,11 @@ int device_release(struct inode *inode, struct file *filp){
 	return 0;
 }
 ssize_t device_read(struct file *filp, char *buf, size_t count, loff_t *f_pos){
-	copy_to_user(device_buf,buf,count);
+	copy_to_user(buf,device_buf,count);
 	return count;
 }
 ssize_t device_write(struct file *filp, const char *buf, size_t count, loff_t *f_pos){
-	copy_from_user(buf,device_buf,count);
+	copy_from_user(device_buf,buf,count);
 	return count;
 }
 
